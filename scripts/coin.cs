@@ -8,15 +8,10 @@ public partial class coin : Area2D
 	{
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	public void onBodyEntered(Node2D body)
 	{
-		GD.Print("player entered");
-		GD.Print(body);
-		QueueFree();
+		GetNode<GameManager>("%GameManager").addPoint();
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("pickup");
+
 	}
 }
